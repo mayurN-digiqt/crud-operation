@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        label {
+            font-weight: bold;
+        }
+        /* Chrome, Safari, Edge, Opera */
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        
+        body {
+            overflow: auto;
+        }
+        
+        .div1 {
+            /* margin-top: 10px; */
+            margin-left: 35px;
+            padding: 10px;
+            border: 1px solid pink;
+            border-radius: 10px;
+            width: 46%;
+            height: auto;
+            float: left;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 20px;
+          
+            color: whitesmoke;
+        }
+        
+        .div2 {
+            /* margin-top: 10px; */
+            margin-right: 10px;
+            padding: 10px;
+            border: 1px solid pink;
+            border-radius: 10px;
+            width: auto;
+            /* height: auto; */
+            /* margin-left: 1%; */
+            color: whitesmoke;
+            left: 50%;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 20px;
+            /* opacity: 0.6; */
+        }
+        
+        .table {
+            padding: auto;
+            text-align: left;
+            width: 100%;
+        }
+        
+        input[type=text],
+        input[type=email],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            opacity: 1;
+            color: red;
+        }
+        
+        input[type=button] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: initial;
+        }
+        
+        input ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            /* Firefox */
+        }
+        
+        input[type=button]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <img src="jmg1.jpg" width="100%" height="100%" class="responsive">
+            <div class="col div1">
+                <form id="form" onsubmit="event.preventDefault()" name="form">
+                    <label style="font-family: 'Times New Roman', Times, serif;"><h1>Form Submit</h1></label>
+
+                    <!-- For Entering Name -->
+                    <div class="form-group">
+                        <label for="name">Enter Your Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name.." name="name" id="name">
+                    <p></p>
+                    </div>
+
+
+                    <!-- Entering Email Address -->
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
+                    </div>
+
+                    <!-- Entering Your Age -->
+                    <div class="form-group ">
+                        <label for="age">Age :</label>
+                        <button type="button" id="inc" class="inc button" name="inc">+</button> <input type="number" value="1" id="age" name="age">
+                        <button type="button" id="dec" class="dec button" name="dec">-</button>
+                    </div>
+
+                    <!-- Select Your Gender -->
+                    <div class="form-group">
+                        <label for="gender">Gender :</label>
+                        <input type="radio" id="radio" class="form-control-radio" name="gender" value="Male">
+                        <label for="html">Male</label>
+                        <input type="radio" id="radio1" class="form-control-radio" name="gender" value="Female">
+                        <label for="html">Female</label>
+                        <input type="radio" id="radio2" class="form-control-radio" name="gender" value="Other">
+                        <label for="html">Other</label>
+                    </div>
+
+                    <!-- Select Your Hobby -->
+                    <div class="checkbox">
+                        <label>Select Your Hobby:</label>
+                        <input type="checkbox" id="hobby1" name="hobby" value="Tracking" class="hobby">
+                        <label for="hobby1"> Traking</label>
+                        <input type="checkbox" id="hobby2" name="hobby" value="Reading" class="hobby">
+                        <label for="hobby2"> Reading</label>
+                        <input type="checkbox" id="hobby3" name="hobby" value="Other" class="hobby">
+                        <label for="hobby3"> Other</label>
+                    </div>
+
+                    <!-- select State and City -->
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">State</label>
+                        <select class="form-control" id="select1" name="state" onchange="getCity()">                  
+                            <option value="" >Select State</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        </select>
+                        <br>
+                        <label for="exampleFormControlSelect1">City</label>
+                        <select class="form-control" id="select2" name="city">
+                            <option>Select City</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" id="add-btn" name="submit">
+                    <button type="submit" class="btn btn-primary update-btn" name="update" style="display: none;">Update</button>
+                </form>
+            </div><br><br><br><br>
+            <!-- Table for Show Data and perform Operation in data -->
+            <div class="col div2" id="my_div">
+                <h2 style="font-family: 'Times New Roman', Times, serif;">Search Name</h2>
+                <input type="text" class="form-control" id="search" name="mysearch" placeholder="Search Name.." onkeyup="search()"><br>
+                <table border="1" id="table">
+                    <thead style="text-align: center; font-size: 18px; font-family: 'Times New Roman', Times, serif;">
+                        <tr>
+                            <td colspan="9" style="font-size: 24px;"><b>Contact Form</b></td>
+                        </tr>
+                        <tr>
+                            <th> Name </th>
+                            <th> Email </th>
+                            <th> Age </th>
+                            <th> Gender </th>
+                            <th> Hobbies </th>
+                            <th> State </th>
+                            <th> City </th>
+                            <th colspan="2"> Operation </th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center; font-size: 18px; font-family: 'Times New Roman', Times, serif;">
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            //  Create Array Variable For Storing Object Data
+            var details = [];
+
+            // Get the Data in Session Storage
+            function getLocal() {
+                data = sessionStorage.getItem("details");
+                if (data == null) {
+                    details = [];
+                } else {
+                    details = JSON.parse(data);
+                }
+            }
+
+            // setData() Function for Store Data In Session Storage
+            function setData() {
+                let hobby = [];
+                $.each($("input[name='hobby']:checked"), function() {
+                    hobby.push($(this).val());
+                });
+
+                // Create a Object for Store data in session storage
+                let data = {
+                    'id': details.length + 1,
+                    "name": $("#name").val(),
+                    "email": $("#email").val(),
+                    "age": $("#age").val(),
+                    "gender": $("input[name='gender']:checked").val(),
+                    "hobby": hobby,
+                    "state":$("#select1 :selected").text(),
+                    "city": $("#select2 :selected").text()
+                };
+
+                // Store Data in Session Storage
+                details.push(data);
+                sessionStorage.setItem('details', JSON.stringify(details));
+                prepareTableCell();
+            }
+
+            // formData() Function for Validation of Form Data
+            function formData() {
+                // If Condition For Check The Form is Fill Or Not
+                if ($('input[name=name]').val().length <= 0 && $('input[name=email]').val().length <= 0 ||
+                $('input[name=age]').val() <= 0 && $('input[name=gender]').prop("checked") == false &&
+                    $('input:checkbox').prop("checked") == false &&
+                    $('select[name=state]').text() == "") {
+                    alert("Fill the All Form...");
+                    $('input[name=name]').focus();
+                    return false;
+                } else if ($('input[name=name]').val().length <= 0) {
+                    alert("Enter Your Name...");
+                    $('input[name=name]').focus();
+                    return false;
+                } else if ($('input[name=email]').val().length <= 0) {
+                    alert("Enter Your Email..");
+                    $('input[name=email]').focus();
+                    return false;
+                } else if ($('input[name=age]').val() <= 1) {
+                    alert("Enter Your age..");
+                    $('input[name=age]').focus();
+                    return false;
+                } else if ($('input[name=gender]').is(":checked") == false) {
+                    alert("Enter Your Gender..");
+                    $('input[name=gender]:first').focus();
+                    return false;
+                } else if ($('input[name="hobby"]').is(":checked") == false) {
+                    alert("Atleast One Select your Hobby..");
+                    $('input[name=hobby]:first').focus();
+                    return false;
+                } else if ($('#select1').val() == "") {
+                    alert("Select Your State..");
+                    $('#select1').focus();
+                    return false;
+                } else if($('.update-btn').attr("value")) { 
+                    console.log("done");        
+                    let hobby = [];
+                    $.each($("input[name='hobby']:checked"), function() {
+                        hobby.push($(this).val());
+                    });
+                    $('tbody').html('');
+                    let update = $('.update-btn').attr("value");
+                    let update_id = parseInt(update);
+                    getLocal();
+                    details.forEach((data, index) => {
+                        for (let id in data) {
+                            if (data[id] == update_id) {
+                                $('tbody').append(`
+                                <tr>
+                                    <td>${data.name = $("#name").val()}</td>
+                                    <td>${data.email = $("#email").val()}</td>
+                                    <td>${data.age = $("#age").val()}</td>
+                                    <td>${data.gender = $("input[name='gender']:checked").val()}</td>
+                                    <td>${data.hobby = hobby}</td>
+                                    <td>${data.state =  $("#select1 :selected").text()}</td>
+                                    <td>${data.city = $("#select2 :selected").text()}</td>
+                                    <td><button  data_id='${data.id}' class="btn btn-primary edit-btn">Edit</button></td>
+                                    <td><button  data_delete_id='${data.id}' class="btn btn-primary delete-btn">Delete</button></td>    
+                                </tr>
+                                `);
+                            }
+                        }
+                    });
+                    location.reload(true);
+                    sessionStorage.setItem("details", JSON.stringify(details));
+                }else{
+                    console.log("Done.....");
+                    setData();
+                    location.reload(true);
+                }
+                return false;
+            }
+            // Create On Click Submit Button For Store Data in session Storage
+            $("#add-btn").on('click', function() {
+                formData();
+
+            });
+
+            // Create Function For Display DAta...
+            function prepareTableCell() {
+
+                // if Data is get in a session storage then execute body part               
+                if (sessionStorage.getItem('details')) {
+                        $('tbody').html("");
+                    getLocal();
+                    details.forEach((data, index) => {
+                        $('tbody').append(`
+                            <tr>
+                                <td>${data.name}</td>
+                                <td>${data.email}</td>
+                                <td>${data.age}</td>
+                                <td>${data.gender}</td>
+                                <td>${data.hobby}</td>
+                                <td>${data.state}</td>
+                                <td>${data.city}</td>
+                                <td><button  data_id='${data.id}' class="btn btn-primary edit-btn">Edit</button></td>
+                                <td><button  data_delete_id='${data.id}'class="btn btn-primary delete-btn">Delete</button></td>
+                                </tr>
+                                `);
+                    });
+                }
+            }
+            prepareTableCell();
+
+            // Edit Function for edit data when click edit button then data is append in form input fields
+            $(".edit-btn").on('click', function() {
+                // console.log("i am editing..", $(this).attr("data_id"));
+                $("#hobby1").prop("checked", false);
+                $("#hobby2").prop("checked", false);
+                $("#hobby3").prop("checked", false);
+
+                let edit = $(this).attr("data_id");
+                // console.log(edit);
+                getLocal();
+                // if index and inner id is same then show the data in input fields
+                details.forEach((data, index) => {
+                    for (let id in data) {
+                        if (data[id] == edit) {
+                            $('input[name=name]').val(data.name);
+                            // name.value = ;
+                            $('input[name=email]').val(data.email);
+                            $('input[name=age]').val(data.age);
+                           
+                            $('input[name=gender][value='+ data.gender +']').prop('checked', true);
+                            for (var i = 0; i <= data.hobby.length; i++) {
+                                if (data.hobby[i] == "Tracking") {
+                                    $("#hobby1").prop("checked", true);
+                                } else if (data.hobby[i] == "Reading") {
+                                    $('#hobby2').prop("checked", true);
+                                } else if (data.hobby[i] == "Other") {
+                                    $("#hobby3").prop("checked", true);
+                                }
+                            }
+                            getCity();
+                            $("#select1").val(data.state);
+                            getCity();
+                            $('#select2').val(data.city);
+                            $('.update-btn').val(data.id);
+                            $(".update-btn").show();
+                            $("#add-btn").hide();
+                        }
+                    }
+                });
+                sessionStorage.setItem("details", JSON.stringify(details));
+            });
+
+            // Create Function For Delete Session Data
+                $(".delete-btn").on('click', function() {
+                    let del_id = $(this).attr("data_delete_id");
+                    getLocal();
+                    details.forEach((data, index) => {
+                        for (let id in data) {
+                            if (data[id] == del_id) {
+                                details.splice(index, 1);
+                            }
+                        }
+                    });
+                    // sessionStorage.removeItem("details")
+                    sessionStorage.setItem("details", JSON.stringify(details));
+                    prepareTableCell();
+                    location.reload();
+                });
+
+       
+            // Update Function for Update data when click update button
+            $(".update-btn").on('click', function() {
+                formData();
+                prepareTableCell();
+                return false;
+            });
+
+            // Increment function for age  
+            $('#inc').on('click', function() {
+                var $qty = $(this).closest('div').find('#age');
+                var currentVal = parseInt($qty.val());
+                if (!isNaN(currentVal)) {
+                    $qty.val(currentVal + 1);
+                }
+            });
+            // Decrement function for age
+            $('.dec').on('click', function() {
+                var $qty = $(this).closest('div').find('#age');
+                var currentVal = parseInt($qty.val());
+                if (!isNaN(currentVal) && currentVal > 0) {
+                    $qty.val(currentVal - 1);
+                }
+            });
+        });
+
+        // Function for State and City..
+        function getCity() {
+            var x = document.getElementById("select1").value;
+            var items;
+            if (x === "Gujarat") {
+                items = ["Junagadh", "Jamanagar", "Ahmedabad", "Rajkot"];
+            } else if (x === "Maharashtra") {
+                items = ["Mumbai", "Pune", "Nagpur", "Thane"]
+            } else if (x == "Rajasthan") {
+                items = ["Jaipur", "Jodhpur", "Kota"];
+            } else if (x == "Madhya Pradesh") {
+                items = ["Indore", "Bhopal", "Jabalpur"];
+            } else {
+                items = [""];
+            }
+            var str = "";
+            for (var item of items) {
+                str += "<option>" + item + "</option>"
+            }
+            document.getElementById("select2").innerHTML = str;
+        }
+
+        const search = () => {
+            let filter = document.getElementById("search").value.toUpperCase();
+
+            let myTable = document.getElementById("table");
+            let tr = myTable.getElementsByTagName('tr');
+            for (let i = 0; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName('td')[0];
+
+                if (td) {
+                    let textValue = td.textContent || td.innerHTML;
+
+                    if (textValue.toUpperCase().indexOf(filter) >= 0) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
